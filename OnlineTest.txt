@@ -1,0 +1,380 @@
+<html>
+<head>
+<style>
+p.indent{ padding-left: 1.8em }
+div.container {border: thin solid black}
+table {
+    border-collapse: collapse;
+	margin-left: 30px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+var correctAns = [2, 2, 3,2,2];
+var totalQns = 5;
+var answersEntered = new Array(totalQns);
+
+window.onload = function() {
+  document.getElementById('p1').style.display = 'none';
+  document.getElementById('q1').style.display = 'none';
+  document.getElementById('q2').style.display = 'none';
+  document.getElementById('q3').style.display = 'none';
+  document.getElementById('q4').style.display = 'none';
+  document.getElementById('q5').style.display = 'none';
+  document.getElementById('a1').style.display = 'none'; 
+}
+
+function validateLogin()
+{
+	// Checking if username is entered
+	if(document.getElementById("uname").value.length == 0) 
+	{
+		alert("Username can't be blank.");
+		document.getElementById("uname").focus();	//Setting focus to the username text box
+		return;	// Exiting from function									
+	}
+	
+	if(document.getElementById("psw").value.length == 0)
+	{
+		alert("Password can't be blank. ");
+		document.getElementById("psw").focus();
+		return;
+	}
+	
+	// Checking if username entered is 'test'
+	if (document.getElementById("uname").value == 'test')
+		{
+			// Checking if password entered in test
+			if (document.getElementById("psw").value == 'test')
+			{
+				//Both username and password entered is 'test'
+				document.getElementById('Login').style.display = 'none';
+				document.getElementById('p1').style.display = 'block';
+				return;
+			}
+			else
+			{
+				// Password entered is not 'test'. 
+				alert('Invalid password. Please retry. ');
+				document.getElementById("psw").value ="";	//clearing contents of password text box
+				document.getElementById("psw").focus();		//Setting focus to the password text box
+				return;
+			}
+		}
+		// Username entered is not test
+		else
+		{
+			alert('Invalid Username. Please reenter. ');
+			document.getElementById("uname").value ="";		//Clearing contents of username text box
+			document.getElementById("uname").focus();		//Setting  to the username text box
+			return;
+		}
+}
+
+function ShowQ1() {
+  document.getElementById('p1').style.display = 'none';
+  document.getElementById('q1').style.display = 'block';
+};
+
+function ShowQ2() {
+	var oneChecked=0;
+	for (var i = 0; i < q1.length; i++) {
+    if (q1[i].checked) {
+       oneChecked=i;
+		}
+	}
+	
+	if (oneChecked == 0)
+	{
+		alert('Please select an answer');
+		return false;
+	}
+	var answer=0;
+	if (document.getElementById('q11').checked) {
+	  answer = document.getElementById('q11').value;
+	}
+	if (document.getElementById('q12').checked) {
+	  answer = document.getElementById('q12').value;
+	}
+	if (document.getElementById('q13').checked) {
+	  answer = document.getElementById('q13').value;
+	}
+	if (document.getElementById('q14').checked) {
+	  answer = document.getElementById('q14').value;
+	}
+	
+	answersEntered[0]=answer;
+	document.getElementById('p1').style.display = 'none';
+	document.getElementById('q1').style.display = 'none';
+	document.getElementById('q2').style.display = 'block';
+	
+	return true;
+};
+
+function ShowQ3() {
+	var oneChecked=0;
+	for (var i = 0; i < q2.length; i++) {
+    if (q2[i].checked) {
+       oneChecked=i;
+		}
+	}
+	
+	if (oneChecked == 0)
+	{
+		alert('Please select an answer');
+		return false;
+	}
+	var answer=0;
+	if (document.getElementById('q21').checked) {
+	  answer = document.getElementById('q21').value;
+	}
+	if (document.getElementById('q22').checked) {
+	  answer = document.getElementById('q22').value;
+	}
+	if (document.getElementById('q23').checked) {
+	  answer = document.getElementById('q23').value;
+	}
+	if (document.getElementById('q24').checked) {
+	  answer = document.getElementById('q24').value;
+	}
+	
+	answersEntered[1]=answer;
+	document.getElementById('p1').style.display = 'none';
+	document.getElementById('q2').style.display = 'none';
+	document.getElementById('q3').style.display = 'block';
+};
+
+function ShowQ4() {
+	var oneChecked=0;
+	for (var i = 0; i < q3.length; i++) {
+    if (q3[i].checked) {
+       oneChecked=i;
+		}
+	}
+	
+	if (oneChecked == 0)
+	{
+		alert('Please select an answer');
+		return false;
+	}
+	var answer=0;
+	if (document.getElementById('q31').checked) {
+	  answer = document.getElementById('q31').value;
+	}
+	if (document.getElementById('q32').checked) {
+	  answer = document.getElementById('q32').value;
+	}
+	if (document.getElementById('q33').checked) {
+	  answer = document.getElementById('q33').value;
+	}
+	if (document.getElementById('q34').checked) {
+	  answer = document.getElementById('q34').value;
+	}
+	
+	answersEntered[2]=answer;
+	document.getElementById('p1').style.display = 'none';
+	document.getElementById('q3').style.display = 'none';
+	document.getElementById('q4').style.display = 'block';
+};
+
+function ShowQ5() {
+	
+	var oneChecked=0;
+	for (var i = 0; i < q4.length; i++) {
+    if (q4[i].checked) {
+       oneChecked=i;
+		}
+	}
+	
+	if (oneChecked == 0)
+	{
+		alert('Please select an answer');
+		return false;
+	}
+	
+	var answer=0;
+	if (document.getElementById('q41').checked) {
+	  answer = document.getElementById('q41').value;
+	}
+	if (document.getElementById('q42').checked) {
+	  answer = document.getElementById('q42').value;
+	}
+	if (document.getElementById('q43').checked) {
+	  answer = document.getElementById('q43').value;
+	}
+	if (document.getElementById('q44').checked) {
+	  answer = document.getElementById('q44').value;
+	}
+	
+	answersEntered[3]=answer;
+	document.getElementById('p1').style.display = 'none';
+	document.getElementById('q4').style.display = 'none';
+	document.getElementById('q5').style.display = 'block';
+	
+};
+
+function ShowResult() {
+	var oneChecked=0;
+	for (var i = 0; i < q5.length; i++) {
+    if (q5[i].checked) {
+       oneChecked=i;
+		}
+	}
+	
+	if (oneChecked == 0)
+	{
+		alert('Please select an answer');
+		return false;
+	}
+	var answer=0;
+	if (document.getElementById('q51').checked) {
+	  answer = document.getElementById('q51').value;
+	}
+	if (document.getElementById('q52').checked) {
+	  answer = document.getElementById('q52').value;
+	}
+	if (document.getElementById('q53').checked) {
+	  answer = document.getElementById('q53').value;
+	}
+	if (document.getElementById('q54').checked) {
+	  answer = document.getElementById('q54').value;
+	}
+	
+	answersEntered[4]=answer;
+	document.getElementById('p1').style.display = 'none';
+	document.getElementById('q5').style.display = 'none';
+	document.getElementById('a1').style.display = 'block';
+	ShowAns();
+};
+
+function ShowAns()
+{
+	// Filling correct answers and user entered answers on the result page
+	document.getElementById("c1").innerHTML =eval(correctAns[0])+1;
+	document.getElementById("u1").innerHTML =eval(answersEntered[0])+1;
+	document.getElementById("c2").innerHTML =eval(correctAns[1])+1;
+	document.getElementById("u2").innerHTML =eval(answersEntered[1])+1;
+	document.getElementById("c3").innerHTML =eval(correctAns[2])+1;
+	document.getElementById("u3").innerHTML =eval(answersEntered[2])+1;
+	document.getElementById("c4").innerHTML =eval(correctAns[3])+1;
+	document.getElementById("u4").innerHTML =eval(answersEntered[3])+1;
+	document.getElementById("c5").innerHTML =eval(correctAns[4])+1;
+	document.getElementById("u5").innerHTML =eval(answersEntered[4])+1;
+	//Getting the count of correct answers
+	
+	var totalCorrectAns=0;
+	for(i=0;i<5;i++)
+	{
+		if (correctAns[i] == answersEntered[i])
+		{
+			totalCorrectAns++;
+		}
+	}
+	document.getElementById("totCorrect").innerHTML = totalCorrectAns;
+	
+}
+</script>
+</head>
+<body>
+	<!-- Login screen -->
+	<div class="container" id="Login">
+    <p class="indent"><h2>Login</h2></p>
+	<p class="indent"><label><b>Username</b></label>
+	<input type="text" placeholder="Enter Username" name="uname" id="uname"></p>
+    <p class="indent"><label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw"></p>
+    <p class="indent"><button type="input" onclick="validateLogin();">Login</button></p>
+ 	</div>
+  
+	<!-- Instructions screen -->
+    <div class="container" id="p1">
+    <h2>Instructions</h2>
+	<p class="indent"><label><b>1. Read the questions carefully </b></p>
+	<p class="indent"><b>2. Select your answer from the choices given and click on Next to continue to next question. </b></p>
+	<p class="indent"><b>Please note, you won't be able to return back to previous questions.</b>
+	</label></p>
+    <p class="indent"><button type="input" onclick="ShowQ1();">Start Test</button></p>
+	<p/>
+    </div>
+   
+    <!-- Question1  -->
+   <div class="container" id="q1">
+    <h2>Question 1 </h2>
+	<p class="indent"><label><b>Which number is 10 more than 494? </b></label></p>
+	<p class="indent"><input type="radio" id="q11" name="q1" value="0">1. Four hundred and four</p>
+	<p class="indent"><input type="radio" id="q12" name="q1" value="1">2. Four hundred and fourteen</p>
+	<p class="indent"><input type="radio" id="q13" name="q1" value="2">3. Five hundred and four</p>
+    <p class="indent"><input type="radio" id="q14" name="q1" value="3">4. Five hundred and fourteen</p>
+    <p class="indent"><button type="input" onclick="ShowQ2();">Next</button></p>
+	<p class="indent"><b>Please note, you won't be able to return back to this question after clicking Next.</b></p>
+    </div>
+	
+    <!-- Question2  -->
+	<div class="container" id="q2">
+    <h2>Question 2 </h2>
+	<p class="indent"><label><b>Jane made 5 pies. She wanted to share them equally among 4 friends. How much pie would each friend get?</b>
+	</label></p>
+	<p class="indent"><input type="radio" id="q21" name="q2" value="0">1. 1/2</p>
+	<p class="indent"><input type="radio" id="q22" name="q2" value="1">2. 3/4</p>
+	<p class="indent"><input type="radio" id="q23" name="q2" value="2">3. 1 1/4</p>
+    <p class="indent"><input type="radio" id="q24" name="q2" value="3">4. 1 1/2</p>
+    <p class="indent"><button type="input" onclick="ShowQ3();">Next</button></p>
+	<p class="indent"><b>Please note, you won't be able to return back to this question after clicking Next.</b></p>
+    </div>
+	
+	<!-- Question3  -->
+  	<div class="container" id="q3">
+    <h2>Question 3 </h2>
+	<p class="indent"><label><b>Which one of these numbers is between 205 and 250?</b>
+	</label></p>
+	<p class="indent"><input type="radio" id="q31" name="q3" value="0">1. two hundred and fifty</p>
+	<p class="indent"><input type="radio" id="q32" name="q3" value="1">2. two hundred and four</p>
+	<p class="indent"><input type="radio" id="q33" name="q3" value="2">3. two hundred and fifty-four</p>
+    <p class="indent"><input type="radio" id="q34" name="q3" value="3">4. two hundred and twenty-four</p>
+    <p class="indent"><button type="input" onclick="ShowQ4();">Next</button></p>
+	<p class="indent"><b>Please note, you won't be able to return back to this question after clicking Next.</b></p>
+    </div>
+	
+	<!-- Question4  -->
+  	<div class="container" id="q4">
+    <h2>Question 4 </h2>
+	<p class="indent"><label><b>School starts at quarter past nine.Which clock below shows this time?</b>
+	</label></p>
+	<p class="indent"><input type="radio" id="q41" name="q4" value="0">1. 8:45 </p>
+	<p class="indent"><input type="radio" id="q42" name="q4" value="1">2. 9:14</p>
+	<p class="indent"><input type="radio" id="q43" name="q4" value="2">3. 9:15</p>
+    <p class="indent"><input type="radio" id="q44" name="q4" value="3">4. 9:45</p>
+    <p class="indent"><button type="input" onclick="ShowQ5();">Next</button></p>
+	<p class="indent"><b>Please note, you won't be able to return back to this question after clicking Next.</b></p>
+    </div>
+	
+	<!-- Question5  -->
+  	<div class="container" id="q5">
+    <h2>Question 5 </h2>
+	<p class="indent"><label><b>Jen had $10. She spent $4.50. How much money does she have left?</b>
+	</label></p>
+	<p class="indent"><input type="radio" id="q51" name="q5" value="0">1. $4.50 </p>
+	<p class="indent"><input type="radio" id="q52" name="q5" value="1">2. $5.00</p>
+	<p class="indent"><input type="radio" id="q53" name="q5" value="2">3. $5.50</p>
+    <p class="indent"><input type="radio" id="q54" name="q5" value="3">4. $6.50</p>
+    <p class="indent"><button type="input" onclick="ShowResult();">Show Test Result</button></p>
+	</div>
+	
+	<!-- Result screen  -->
+  	<div class="container" id="a1">
+    <h2> RESULT </h2>
+	<table>
+	<tr><td><label><b>Qn</b></label></td><td><label><b>Correct Answer</b></label></td><td><label><b>User entered Answer</b></label></td></tr>
+	<tr><td><label><b>1</b></label></td><td><label id="c1"><b></b></label></td><td><label id="u1"><b></b></label></td></tr>
+	<tr><td><label><b>2</b></label></td><td><label id="c2"><b></b></label></td><td><label id="u2"><b></b></label></td></tr>
+	<tr><td><label><b>3</b></label></td><td><label id="c3"><b></b></label></td><td><label id="u3"><b></b></label></td></tr>
+	<tr><td><label><b>4</b></label></td><td><label id="c4"><b></b></label></td><td><label id="u4"><b></b></label></td></tr>
+	<tr><td><label><b>5</b></label></td><td><label id="c5"><b></b></label></td><td><label id="u5"><b></b></label></td></tr>
+	</table>
+	<p class="indent"><label><b>Total correct answers: </b></label><b><label id='totCorrect'></label></b></p>
+	<br><br>
+	</div>
+</body>
+</html>
